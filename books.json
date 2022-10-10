@@ -1,0 +1,38 @@
+[
+  {
+    "bookTitle": "The Great Gasby",
+    "authorName": "F. Scott Fitzgerald",
+    "bookPrice": "6.67",
+    "bookEdition": "1st edition",
+    "publishYear": "1925",
+    "pageNumber": "180",
+    "BookGenre": ["Historical Fiction", "American", "Romance"]
+  },
+  {
+    "bookTitle": "The Catcher in the Rye",
+    "authorName": "J. D. Salinger",
+    "bookPrice": "8.67",
+    "bookEdition": "2nd edition",
+    "publishYear": "1951",
+    "pageNumber": "277",
+    "BookGenre": ["Young Adult", "American", "Coming of Age"]
+  },
+  {
+    "bookTitle": "The Lord of the Rings",
+    "authorName": "J. R. R. Tolkien",
+    "bookPrice": "16.67",
+    "bookEdition": "3rd edition",
+    "publishYear": "1954",
+    "pageNumber": "1285",
+    "BookGenre": ["Fantasy", "Adventure", "Epic"]
+  },
+  {
+    "bookTitle": "Book of Mormon",
+    "authorName": "Joseph Smith",
+    "bookPrice": "16.97",
+    "bookEdition": "3rd edition",
+    "publishYear": "1981",
+    "pageNumber": "779",
+    "BookGenre": ["Gospel", "Jesus Christ", "Another Testament of Jesus Christ"]
+  }
+]
