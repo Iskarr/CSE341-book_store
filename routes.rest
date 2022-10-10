@@ -36,3 +36,43 @@ content-type: application/json
 }
 ### DELETE book 
 DELETE http://localhost:4000/books/63438bf5c83f93cbaae28cd4 HTTP/1.1
+
+
+### Render
+
+GET https://bookstore-hliu.onrender.com/books
+### Get book 1
+GET https://bookstore-hliu.onrender.com/books/634382a36e51ba8754435119
+### Get book 2
+GET https://bookstore-hliu.onrender.com/books/634382a36e51ba875443511a
+### Get book 3
+GET https://bookstore-hliu.onrender.com/books/634382a36e51ba875443511b
+### Post book
+POST https://bookstore-hliu.onrender.com/books HTTP/1.1
+content-type: application/json
+
+{
+    "bookTitle": "The Great Gasby",
+    "authorName": "F. Scott Fitzgerald",
+    "bookPrice": "6.67",
+    "bookEdition": "1st edition",
+    "publishYear": "1925",
+    "pageNumber": "180",
+    "BookGenre": ["Historical Fiction", "American", "Romance"]
+}
+### Update book
+PUT https://bookstore-hliu.onrender.com/books/63439cde628c3acd97cdb3d9 HTTP/1.1
+content-type: application/json
+
+{
+    "bookTitle": "The Great Gasby",
+    "authorName": "F. Scott Fitzgerald",
+    "bookPrice": "6.67",
+    "bookEdition": "2nd edition",
+    "publishYear": "1925",
+    "pageNumber": "180",
+    "BookGenre": ["Historical Fiction", "American", "Romance"]
+}
+
+### DELETE book 
+DELETE https://bookstore-hliu.onrender.com/books/63439cde628c3acd97cdb3d9 HTTP/1.1
