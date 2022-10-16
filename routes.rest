@@ -19,7 +19,7 @@ content-type: application/json
     "bookEdition": "3rd edition",
     "publishYear": "1925",
     "pageNumber": "180",
-    "BookGenre": "Historical Fiction", "American", "Romance"]
+    "BookGenre": ["Historical Fiction", "American", "Romance"]
 }
 ### PUT book 
 PUT http://localhost:4000/books/6349b357fbed97704fd6d78f HTTP/1.1
@@ -83,11 +83,25 @@ POST http://localhost:4000/books HTTP/1.1
 content-type: application/json
 
 {
-    "bookTitle": "The Great Gasby",
+    "bookTitle": "The Great Gasby tester",
     "authorName": "F. Scott Fitzgerald",
     "bookPrice": "6.67",
     "bookEdition": "3rd edition",
     "publishYear": "1925",
     "pageNumber": "180",
     "BookGenre": ["Historical Fiction", "American", "Romance"]
+}
+
+### PUT book 
+PUT http://localhost:4000/books/634b89f1a555c56a92467764 HTTP/1.1
+content-type: application/json
+
+{
+    "bookTitle": "To Kill a Mockingbird",
+    "authorName": "Harper Lee",
+    "bookPrice": "8.67",
+    "bookEdition": "2nd edition",
+    "publishYear": "1960",
+    "pageNumber": "323",
+    "BookGenre": ["Historical Fiction", "American", "Young Adult"]
 }

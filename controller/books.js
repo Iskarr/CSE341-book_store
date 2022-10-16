@@ -14,13 +14,6 @@ const createBook = async (req, res) => {
       BookGenre: req.body.BookGenre,
     };
 
-    if (book.bookTitle == null || book.bookTitle == "") {
-      return res.status(404).json({
-        success: false,
-        error: "You must provide a book title",
-      });
-    }
-
     const response = await mongodb
       .getDb()
       .db()
@@ -43,6 +36,9 @@ const createBook = async (req, res) => {
 // UPDATE book
 const updateBook = async (req, res) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid book id to update that book.");
+    }
     const userId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
     const book = {
@@ -107,10 +103,13 @@ const deleteBook = async (req, res) => {
 };
 
 // GET all books
-const getAllBooks = async (req, res) => {
-  try {
-    const result = await mongodb.getDb().db().collection("books").find();
-    result.toArray().then((err, lists) => {
+const getAllBooks = (req, res) => {
+  mongodb
+    .getDb()
+    .db()
+    .collection("books")
+    .find()
+    .toArray((err, lists) => {
       if (err) {
         res.status(400).json({
           message: err,
@@ -119,29 +118,29 @@ const getAllBooks = async (req, res) => {
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(lists);
     });
-  } catch (error) {
-    res.status(500).json(error);
-  }
 };
 
 // GET single contact
-const getSingleBook = async (req, res) => {
+const getSingleBook = (req, res) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid book id to find that book.");
+    }
     const userId = new ObjectId(req.params.id);
-    const result = await mongodb
+    mongodb
       .getDb()
       .db()
       .collection("books")
-      .find({ _id: userId });
-    result.toArray().then((err, lists) => {
-      if (err) {
-        res.status(400).json({
-          message: err,
-        });
-      }
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).json(lists[0]);
-    });
+      .find({ _id: userId })
+      .toArray((err, lists) => {
+        if (err) {
+          res.status(400).json({
+            message: err,
+          });
+        }
+        res.setHeader("Content-Type", "application/json");
+        res.status(200).json(lists[0]);
+      });
   } catch (error) {
     res.status(500).json(error);
   }
