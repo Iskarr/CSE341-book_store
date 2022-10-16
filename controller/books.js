@@ -80,6 +80,9 @@ const updateBook = async (req, res) => {
 // DELETE book
 const deleteBook = async (req, res) => {
   try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid book id to delete that book.");
+    }
     const userId = new ObjectId(req.params.id);
 
     const response = await mongodb
