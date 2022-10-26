@@ -1,7 +1,7 @@
 # LOCALHOST
 
 ### Get all books
-GET http://localhost:4000/books
+GET http://:4000/books
 ### Get One book 1
  GET http://localhost:4000/books/634382a36e51ba875443511a
 ### Get book 2
@@ -104,18 +104,4 @@ content-type: application/json
     "publishYear": "1960",
     "pageNumber": "323",
     "BookGenre": ["Historical Fiction", "American", "Young Adult"]
-}
-
-
-# User creation and testing
-
-### Create a new User
-POST http://localhost:4000/register HTTP/1.1
-content-type: application/json
-
-{
-    "firstName": "Keanu",
-    "lastName": "Reeves",
-    "email": "bikelord@hotmail.com",
-    "password":"mygirlfriend"
 }
